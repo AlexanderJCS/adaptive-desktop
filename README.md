@@ -1,2 +1,2 @@
 # adaptive-desktop
-Adaptive desktops for Windows based off of weather and time
+Adaptive desktops for Windows based off of weather and time (time coming soon)
