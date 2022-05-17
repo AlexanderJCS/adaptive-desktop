@@ -1,0 +1,7 @@
+{
+  "lat": 0,
+  "lon": 0,
+  "key": "get at https://home.openweathermap.org/api_keys",
+  "backgrounds_path": "absolute filepath to your backgrounds folder, use double backslashes for seperating directories",
+  "refresh_time": 120
+}
