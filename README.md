@@ -9,3 +9,4 @@ Adaptive desktops for Windows based off of weather and time (time coming soon)
 C:\\Users\\myUser\\Desktop\\Backgrounds
 ```
 **This needs to be the _absolute_ file path starting with your drive letter, not the relative file path.**
+4. Replace the images in the backgrounds folder with your own images.
