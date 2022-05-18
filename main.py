@@ -33,10 +33,10 @@ def set_desktop_with_weather(weather_id):
             continue
 
         if os.path.exists(f"{config.get('backgrounds_path')}{condition}.jpg"):
-            set_desktop(f"\\{config.get('backgrounds_path')}{condition}.jpg")
+            set_desktop(f"{config.get('backgrounds_path')}\\{condition}.jpg")
 
         elif os.path.exists(f"{config.get('backgrounds_path')}{condition}.png"):
-            set_desktop(f"\\{config.get('backgrounds_path')}{condition}.png")
+            set_desktop(f"{config.get('backgrounds_path')}\\{condition}.png")
 
 
 def main():
