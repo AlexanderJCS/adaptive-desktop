@@ -10,3 +10,20 @@ Adaptive desktops for Windows based off of weather and time (time coming soon)
 C:\\Users\\myUser\\Desktop\\Backgrounds
 ```
 **This needs to be the _absolute_ file path starting with your drive letter, not the relative file path.**
+
+## Image names:
+For version 1.0 or later, image names need to be one of the following depending on the weather condition and time of day:
+- day_thunderstorm
+- night_thunderstorm
+- day_drizzle
+- night_drizzle
+- day_rain
+- night_rain
+- day_snow
+- night_snow
+- day_atmosphere
+- night_atmosphere
+- day_clear
+- night_clear
+- day_clouds
+- night_clouds
