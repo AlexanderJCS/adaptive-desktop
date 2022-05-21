@@ -82,6 +82,13 @@ def main():
         # Gather weather data
         logging.debug("Gathering weather data...")
         data = get_weather_data(config.get("lat"), config.get("lon"))
+
+        # Check if the data is valid
+        if data.get("cod") != 200:
+            logging.critical(f"Error code {data.get('cod')} recieved: {data.get('message')}")
+            time.sleep(config.get("refresh_time"))
+            continue
+
         weather_id = data["weather"][0]["id"]
         logging.debug(f"Collected weather data. ID: {weather_id}")
         condition = find_weather_name(weather_id)
