@@ -7,15 +7,6 @@ import time
 import json
 import os
 
-IDS = {
-    "thunderstorm": (200, 201, 202, 210, 211, 212, 221, 230, 231, 232),
-    "drizzle": (300, 301, 302, 310, 311, 312, 313, 314, 321),
-    "rain": (500, 501, 502, 503, 504, 511, 520, 521, 522, 531),
-    "snow": (600, 601, 602, 611, 612, 615, 616, 620, 621, 622),
-    "atmosphere": (701, 711, 721, 731, 741, 751, 761, 762, 771, 781),
-    "clear": (800, 801, 802),
-    "clouds": (803, 804, )
-}
 
 VALID_FORMATS = ("png", "jpg", "jpeg", "gif")
 
@@ -51,25 +42,13 @@ def set_desktop(time_of_day, weather_condition):
     logging.info(f"Set desktop background to {file_path}")
 
 
-def find_weather_name(weather_id):
-    # Find the weather name from the weather IDs
-    for condition, value in IDS.items():
-        if weather_id not in value:
-            continue
-
-        return condition
-
-    logging.warning(f"No background found for ID {weather_id}. To find a list of weather IDs, visit"
-                    f" https://openweathermap.org/weather-conditions")
-
-
 def find_time_of_day():
     # Find if the current time is between sunrise and sunset
     now = datetime.datetime.now()
     sunrise = now.replace(hour=config.get("sunrise_hour"), minute=config.get("sunrise_minute"))
     sunset = now.replace(hour=config.get("sunset_hour"), minute=config.get("sunset_minute"))
 
-    if sunrise < now < sunset:
+    if sunrise <= now <= sunset:
         return "day"
 
     return "night"
@@ -90,8 +69,8 @@ def main():
             continue
 
         weather_id = data["weather"][0]["id"]
-        logging.debug(f"Collected weather data. ID: {weather_id}")
-        condition = find_weather_name(weather_id)
+        condition = data["weather"][0]["main"]
+        logging.debug(f"Collected weather data. ID: {weather_id}, condition: {condition}")
 
         # Find the time of day
         time_of_day = find_time_of_day()
