@@ -1,11 +1,12 @@
 {
-  "lat": 0,
-  "lon": 0,
-  "key": "get at https://home.openweathermap.org/api_keys",
-  "backgrounds_path": "absolute filepath to your backgrounds folder, use double backslashes for seperating directories",
+  "lat": 27.16,
+  "lon": -80.27,
+  "key": "69a0dc9c219a0d9608ab4045837223a7",
+  "backgrounds_path": "C:\\Users\\d8amo\\Desktop\\Programming\\Python\\upgraded_windows\\adaptive_background\\backgrounds",
   "refresh_time": 120,
   "sunrise_hour": 6,
   "sunrise_minute": 30,
   "sunset_hour": 19,
-  "sunset_minute": 30
+  "sunset_minute": 30,
+  "logging_level": 30
 }
