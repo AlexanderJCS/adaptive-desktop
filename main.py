@@ -69,7 +69,7 @@ def main():
             continue
 
         weather_id = data["weather"][0]["id"]
-        condition = data["weather"][0]["main"]
+        condition = data["weather"][0]["main"].lower() if weather_id not in (801, 802) else "clear"
         logging.debug(f"Collected weather data. ID: {weather_id}, condition: {condition}")
 
         # Find the time of day
