@@ -60,7 +60,14 @@ def main():
     while True:
         # Gather weather data
         logging.debug("Gathering weather data...")
-        data = get_weather_data(config.get("lat"), config.get("lon"))
+
+        try:
+            data = get_weather_data(config.get("lat"), config.get("lon"))
+
+        except requests.exceptions.ConnectionError:
+            logging.error(f"Connection error. Retrying in {config.get('refresh_time')} seconds")
+            time.sleep(config.get('refresh_time'))
+            continue
 
         # Check if the data is valid
         if data.get("cod") != 200:
@@ -68,6 +75,7 @@ def main():
             time.sleep(config.get("refresh_time"))
             continue
 
+        # Set the weather conditions to variables
         weather_id = data["weather"][0]["id"]
         condition = data["weather"][0]["main"].lower() if weather_id not in (801, 802) else "clear"
         logging.debug(f"Collected weather data. ID: {weather_id}, condition: {condition}")
